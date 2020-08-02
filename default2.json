@@ -1,0 +1,140 @@
+[
+  {
+    "form": [
+      {
+        "type": "section",
+        "id": "trade_details",
+        "fields": [
+          {
+            "id": "finacial_year",
+            "name": "finacial_year",
+            "type": "dropdown",
+            "labelText": "<ReferenceError: i18n is not defined>",
+            "hintText": "<ReferenceError: i18n is not defined>",
+            "errMessage": "<ReferenceError: i18n is not defined>",
+            "required": true,
+            "action": "createComplaint.updateDependentFields"
+          },
+          {
+            "type": "input-group",
+            "id": "contact_info",
+            "fields": [
+              {
+                "id": "pan_no",
+                "type": "input",
+                "name": "pan_no"
+              },
+              {
+                "id": "mobile_no",
+                "type": "input",
+                "name": "mobile_no"
+              },
+              {
+                "id": "landline_no",
+                "type": "input",
+                "name": "landline_no"
+              }
+            ]
+          },
+          {
+            "id": "payment",
+            "name": "pay",
+            "type": "input-file",
+            "paymentMethodDropDown": [
+              {
+                "id": "PT_PAYMENT_METHOD_CASH",
+                "label": "PT_PAYMENT_METHOD_CASH",
+                "value": "Cash"
+              },
+              {
+                "id": "PT_PAYMENT_METHOD_DD",
+                "label": "PT_PAYMENT_METHOD_DD",
+                "value": "DD"
+              },
+              {
+                "id": "PT_PAYMENT_METHOD_CHEQUE",
+                "label": "PT_PAYMENT_METHOD_CHEQUE",
+                "value": "Cheque"
+              }
+            ],
+            "errMessage": "<ReferenceError: i18n is not defined>",
+            "action": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "form": [
+      {
+        "type": "section",
+        "id": "property_details",
+        "fields": [
+          {
+            "id": "plot_size",
+            "name": "plot size",
+            "type": "text"
+          },
+          {
+            "id": "no_of_floor",
+            "name": "plot size",
+            "type": "text"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "form": [
+      {
+        "type": "section",
+        "id": "floor_details",
+        "fields": [
+          {
+            "id": "floor",
+            "name": "Select floor",
+            "type": "dropdown",
+            "floorOptions": [
+              {
+                "id": "ground_floor",
+                "name": "ground floor"
+              },
+              {
+                "id": "top_floor",
+                "name": "top_floor"
+              }
+            ]
+          },
+          {
+            "id": "unit-1",
+            "type": "input-group",
+            "name": "unit-1",
+            "fields": [
+              {
+                "id": "usage_type",
+                "name": "usage_type",
+                "type": "text"
+              },
+
+              {
+                "id": "drop_down",
+                "name": "floorOptions",
+                "type": "drop_down",
+                "floorOption": [
+                  {
+                    "id": "rented",
+                    "name": "rented"
+                  },
+                  {
+                    "id": "owned",
+                    "name": "owned"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

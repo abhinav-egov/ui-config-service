@@ -1,0 +1,70 @@
+{
+  "name": "create_complaint",
+  "action": "createComplaint",
+  "init": "newComplaintInit",
+  "saveUrl": "/rainmaker-pgr/v1/requests/_create",
+  "redirectionRoute": "/complaint-submitted",
+  "fields": [
+    {
+      "id": "city",
+      "name": "city",
+      "type": "dropdown",
+      "labelText": "{{i18n.CORE_COMMON_CITY}}",
+      "hintText": "{{i18n.CS_CREATECOMPLAINT_SELECT_PLACEHOLDER}}",
+      "errMessage": "{{i18n.CS_ADDCOMPLAINT_COMPLAINT_TYPE_PLACEHOLDER}}",
+      "required": true,
+      "action": "createComplaint.updateDependentFields"
+    },
+    {
+      "id": "address",
+      "name": "address",
+      "type": "input-textarea",
+      "labelText": "{{i18n.CS_ADDCOMPLAINT_LOCATION}}",
+      "hintText": "{{i18n.CS_COMPLAINT_DETAILS_LOCATION}}",
+      "placeholder": "place that holder",
+      "errMessage": "",
+      "action": ""
+    },
+    {
+      "id": "media",
+      "name": "media",
+      "type": "input-file",
+      "errMessage": "{{i18n.CS_FILE_UPLOAD_FAILED}}",
+      "action": ""
+    },
+    {
+      "id": "payment",
+      "name": "payment_options",
+      "paymentMethodDropDown": [
+        {
+          "id": "PT_PAYMENT_METHOD_CASH",
+          "label": "PT_PAYMENT_METHOD_CASH",
+          "value": "Cash"
+        },
+        {
+          "id": "PT_PAYMENT_METHOD_DD",
+          "label": "PT_PAYMENT_METHOD_DD",
+          "value": "DD"
+        },
+        {
+          "id": "PT_PAYMENT_METHOD_CHEQUE",
+          "label": "PT_PAYMENT_METHOD_CHEQUE",
+          "value": "Cheque"
+        },
+        {
+          "id": "PT_PAYMENT_METHOD_CARD",
+          "label": "PT_PAYMENT_METHOD_CARD",
+          "value": "Card"
+        }
+      ]
+    }
+  ],
+  "buttons": [
+    {
+      "id": "addComplaint-submit-complaint",
+      "name": "submit",
+      "labelText": "{{i18n.CS_ADDCOMPLAINT_ADDITIONAL_DETAILS_SUBMIT_COMPLAINT}}",
+      "action": "createComplaint.submit"
+    }
+  ]
+}
