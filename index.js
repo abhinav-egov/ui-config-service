@@ -1,6 +1,6 @@
 let express = require("express");
 let bodyParser = require("body-parser");
-let configManager = require("./configManager__2");
+let configManager = require("./configManager");
 let app = express();
 let jsonParser = bodyParser.json();
 
