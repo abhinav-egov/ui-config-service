@@ -1,0 +1,18 @@
+[
+  {
+    "id": "name",
+    "type": "input",
+    "name": "name"
+  },
+  {
+    "id": "locality",
+    "type": "dropdown",
+    "dropdown": [
+      {
+        "__INSERT_BEFORE__": "saket",
+        "id": "lado sarai",
+        "value": "lado sarai"
+      }
+    ]
+  }
+]
