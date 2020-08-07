@@ -1,6 +1,5 @@
 let defaultConfig = require("./default2.json");
 let configUtils = require("./configUtils");
-const { json } = require("body-parser");
 
 let defaultConfigCopy = {};
 let sectionToBeUpdated = {};
