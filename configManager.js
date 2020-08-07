@@ -1,4 +1,4 @@
-let defaultConfig = require("./default2.json");
+let defaultConfig = require("./default5.json");
 let configUtils = require("./configUtils");
 
 let defaultConfigCopy = {};
@@ -9,10 +9,6 @@ let selectedProperty = "";
 const MergeConfigObj = (stateConfig) => {
   defaultConfigCopy = JSON.parse(JSON.stringify(defaultConfig));
   processStateConfig(stateConfig);
-  console.log(
-    "defaultConfigCopy returened------->",
-    JSON.stringify(defaultConfigCopy)
-  );
   return defaultConfigCopy;
 };
 
@@ -27,18 +23,15 @@ const processStateConfig = (stateConfig) => {
 
 const InitSectionToUpdate = (forms) => {
   if (forms.id && !forms.__property__) {
-    console.log("finding current updatable section----------------");
     GetCurrentUpdatableSection(forms.id, defaultConfigCopy);
-    console.log(
-      "currentUpdatableSection received--------->",
-      currentUpdatableSection
-    );
   }
   if (forms.__property__ && forms.__action__) {
     selectedProperty = forms.__property__;
-    console.log("currentUpdatableSection-->", currentUpdatableSection);
+    currentUpdatableSection =
+      currentUpdatableSection.length === 0
+        ? defaultConfigCopy
+        : currentUpdatableSection;
     findSectionById(selectedProperty, currentUpdatableSection);
-    console.log("section to be updated-->", sectionToBeUpdated);
     seachInDefaultConfig(forms.__property__, forms);
   } else if (Array.isArray(forms)) {
     forms.map((form) => {
@@ -53,19 +46,12 @@ const InitSectionToUpdate = (forms) => {
 };
 
 const GetCurrentUpdatableSection = (id, defaultConfigCopy) => {
-  console.log("GetCurrentUpdatableSection id----->", id);
   // console.log("defaultConfigCopy----->", JSON.stringify(defaultConfigCopy));
   if (Array.isArray(defaultConfigCopy)) {
     for (let i = 0; i < defaultConfigCopy.length; i++) {
-      console.log(
-        "defaultConfigCopy[i] obhnye ha-------- ----",
-        JSON.stringify(defaultConfigCopy[i])
-      );
-      // console.log("id---------------------->", id);
       if (defaultConfigCopy[i].id === id) {
-        //section = defaultConfigCopy;
         currentUpdatableSection.push(defaultConfigCopy[i]);
-        console.log("matched--------- id----->", currentUpdatableSection);
+        console.log("matched", currentUpdatableSection);
       } else if (
         configUtils.ifObjectContainsArray(defaultConfigCopy[i]).hasArray
       ) {
@@ -75,7 +61,6 @@ const GetCurrentUpdatableSection = (id, defaultConfigCopy) => {
       }
     }
   }
-  //return section;
 };
 
 const findSectionById = (id, currentUpdatableSection) => {
@@ -101,12 +86,6 @@ const seachInDefaultConfig = (id, action) => {
   } else if (Array.isArray(sectionToBeUpdated)) {
     sectionToBeUpdated.map((section) => {
       if (section.id === id) {
-        console.log("action handler--------->");
-        console.log(
-          "section to be updated--------------------->",
-          JSON.stringify(sectionToBeUpdated),
-          action
-        );
         actionHandler(action, id, sectionToBeUpdated);
       }
     });
@@ -155,14 +134,7 @@ const updateAt = (index, data, fields) => {
 };
 
 const deleteAt = (index, fields) => {
-  console.log("index---->", index);
-  console.log("fields----->", fields);
   fields.splice(index, 1);
-  console.log("section to be updated---------->", sectionToBeUpdated);
-  console.log(
-    ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>",
-    JSON.stringify(currentUpdatableSection)
-  );
 };
 
 const deleteExtraKeys = (data) => {
