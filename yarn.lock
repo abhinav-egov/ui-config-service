@@ -623,6 +623,11 @@ json-buffer@3.0.0:
   resolved "https://registry.yarnpkg.com/json-buffer/-/json-buffer-3.0.0.tgz#5b1f397afc75d677bde8bcfc0e47e1f9a3d9a898"
   integrity sha1-Wx85evx11ne96Lz8Dkfh+aPZqJg=
 
+json-find@^2.0.7:
+  version "2.0.7"
+  resolved "https://registry.yarnpkg.com/json-find/-/json-find-2.0.7.tgz#5c963828e5de4284b603eeec6ebf96598fed8ace"
+  integrity sha512-Lpl8wT7igzWkLxmDB+OWno4J6jZqQQq3AeBpkt7q1cBUOuokOT0rf/WHFAfsOmHt/A5xjpixRDmbyl4H0NlK/Q==
+
 keyv@^3.0.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/keyv/-/keyv-3.1.0.tgz#ecc228486f69991e49e9476485a5be1e8fc5c4d9"

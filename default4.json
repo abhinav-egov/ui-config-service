@@ -7,11 +7,19 @@
   {
     "id": "locality",
     "type": "dropdown",
+    "name": "kusum",
     "dropdown": [
       {
-        "__INSERT_BEFORE__": "saket",
         "id": "lado sarai",
         "value": "lado sarai"
+      },
+      {
+        "id": "saket",
+        "value": "saket"
+      },
+      {
+        "id": "pincode",
+        "type": "dropdown"
       }
     ]
   }

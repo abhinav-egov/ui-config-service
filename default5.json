@@ -1,5 +1,7 @@
-{
-  "id": "username",
-  "name": "username",
-  "type": "text"
-}
+[
+  {
+    "type": "text",
+    "id": "username",
+    "name": "my name"
+  }
+]

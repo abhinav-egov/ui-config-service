@@ -1,0 +1,79 @@
+[
+  {
+    "form": [
+      {
+        "type": "section",
+        "id": "trade_details",
+        "fields": [
+          {
+            "type": "text",
+            "name": "person name",
+            "id": "name"
+          },
+          {
+            "type": "input-group",
+            "id": "input_grp_1",
+            "fields": [
+              {
+                "id": "pan_no",
+                "type": "input",
+                "name": "pan_no"
+              },
+              {
+                "id": "mobile_no",
+                "type": "input",
+                "name": "mobile_no"
+              }
+            ]
+          },
+          {
+            "type": "input-group",
+            "id": "input_grp_2",
+            "fields": [
+              {
+                "id": "pan_no",
+                "type": "input",
+                "name": "pan_no"
+              },
+              {
+                "id": "mobile_no",
+                "type": "input",
+                "name": "mobile_no"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "form": [
+      {
+        "type": "section",
+        "id": "floor_details",
+        "fields": [
+          {
+            "id": "floor",
+            "name": "Select floor",
+            "type": "dropdown",
+            "floorOptions": [
+              {
+                "id": "ground_floor",
+                "name": "ground floor"
+              },
+              {
+                "id": "top_floor",
+                "name": "top_floor"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "name": "person name",
+            "id": "name"
+          }
+        ]
+      }
+    ]
+  }
+]

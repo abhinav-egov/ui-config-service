@@ -8,12 +8,17 @@
           {
             "id": "finacial_year",
             "name": "finacial_year",
-            "type": "dropdown",
+            "type": "text",
             "labelText": "<ReferenceError: i18n is not defined>",
             "hintText": "<ReferenceError: i18n is not defined>",
             "errMessage": "<ReferenceError: i18n is not defined>",
             "required": true,
             "action": "createComplaint.updateDependentFields"
+          },
+          {
+            "type": "text",
+            "name": "person name",
+            "id": "name"
           },
           {
             "type": "input-group",
@@ -81,6 +86,11 @@
             "type": "text"
           }
         ]
+      },
+      {
+        "type": "text",
+        "name": "property name",
+        "id": "name"
       }
     ]
   },
@@ -90,6 +100,10 @@
         "type": "section",
         "id": "floor_details",
         "fields": [
+          {
+            "id": "name",
+            "name": "name"
+          },
           {
             "id": "floor",
             "name": "Select floor",

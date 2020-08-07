@@ -30,4 +30,22 @@ const getSectionInfo = (formId, sectionId, defaultConfigCopy) => {
   return fieldToUpdate;
 };
 
-exports.getSectionInfo = getSectionInfo;
+const ifObjectContainsArray = (object) => {
+  if (Array.isArray(object)) {
+    return { hasArray: true, value: object };
+  }
+  for (const property in object) {
+    if (object.hasOwnProperty(property)) {
+      const element = object[property];
+      if (Array.isArray(element)) {
+        return { hasArray: true, value: element };
+      }
+    }
+  }
+  return { hasArray: false, value: [] };
+};
+
+module.exports = {
+  getSectionInfo: getSectionInfo,
+  ifObjectContainsArray: ifObjectContainsArray,
+};
