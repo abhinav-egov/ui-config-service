@@ -9,9 +9,9 @@
             "id": "finacial_year",
             "name": "finacial_year",
             "type": "text",
-            "labelText": "<ReferenceError: i18n is not defined>",
-            "hintText": "<ReferenceError: i18n is not defined>",
-            "errMessage": "<ReferenceError: i18n is not defined>",
+            "labelText": "i18n.pgr.financial_year.lable_text",
+            "hintText": "i18n.pgr.financial_year.hint_text",
+            "errMessage": "i18n.pgr.financial_year.error_text",
             "required": true,
             "action": "createComplaint.updateDependentFields"
           },
@@ -62,7 +62,7 @@
                 "value": "Cheque"
               }
             ],
-            "errMessage": "<ReferenceError: i18n is not defined>",
+            "errMessage": "i18n.trade_licence.financial_year.error_text",
             "action": ""
           }
         ]

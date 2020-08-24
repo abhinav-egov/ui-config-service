@@ -1,4 +1,4 @@
-let defaultConfig = require("./default5.json");
+let defaultConfig = require("./default2.json");
 let configUtils = require("./configUtils");
 
 let defaultConfigCopy = {};
@@ -22,6 +22,7 @@ const processStateConfig = (stateConfig) => {
 };
 
 const InitSectionToUpdate = (forms) => {
+  console.log("forms--->", forms);
   if (forms.id && !forms.__property__) {
     GetCurrentUpdatableSection(forms.id, defaultConfigCopy);
   }
@@ -41,17 +42,16 @@ const InitSectionToUpdate = (forms) => {
     let array = configUtils.ifObjectContainsArray(forms).value;
     InitSectionToUpdate(array);
   } else {
-    throw "__property__ and  __action__ not found";
+    throw "__property__ or  __action__ not found";
   }
 };
 
 const GetCurrentUpdatableSection = (id, defaultConfigCopy) => {
-  // console.log("defaultConfigCopy----->", JSON.stringify(defaultConfigCopy));
   if (Array.isArray(defaultConfigCopy)) {
     for (let i = 0; i < defaultConfigCopy.length; i++) {
       if (defaultConfigCopy[i].id === id) {
         currentUpdatableSection.push(defaultConfigCopy[i]);
-        console.log("matched", currentUpdatableSection);
+        //console.log("matched", currentUpdatableSection);
       } else if (
         configUtils.ifObjectContainsArray(defaultConfigCopy[i]).hasArray
       ) {
@@ -77,10 +77,14 @@ const findSectionById = (id, currentUpdatableSection) => {
       }
     }
   }
+
   return sectionToBeUpdated;
 };
 
 const seachInDefaultConfig = (id, action) => {
+  if (!Array.isArray(sectionToBeUpdated) && !sectionToBeUpdated.id) {
+    throw "id not found";
+  }
   if (sectionToBeUpdated.id === id) {
     actionHandler(action, id, sectionToBeUpdated);
   } else if (Array.isArray(sectionToBeUpdated)) {
@@ -107,6 +111,7 @@ const actionHandler = (action, id, fieldList) => {
     deleteExtraKeys(action);
   }
   if (action.__action__ === "DELETE") {
+    console.log("deleteing------");
     deleteAt(index, fieldList);
     deleteExtraKeys(action);
   }
@@ -122,14 +127,27 @@ const handleInsertion = (index, action, fields) => {
 };
 
 const getIndex = (propertyValue, fields) => {
-  return fields.findIndex((option) => option.id === propertyValue);
+  console.log("propertyValue--------->", propertyValue);
+  console.log("fields------------------>", fields);
+  let index = fields.findIndex((option) => option.id === propertyValue);
+  console.log("index is---->", index);
+  return index;
 };
 
 const insertAt = (index, data, fields) => {
+  console.log("data------------------------->", data);
+  if (!data.id) {
+    throw "id is required is required to insert a record";
+  }
   fields.splice(index, 0, data);
 };
 
 const updateAt = (index, data, fields) => {
+  console.log("fields----------->", fields[index]);
+  console.log("data-------->----->", data);
+  if (fields[index].id !== data.id) {
+    throw `id ${data.id} not matched`;
+  }
   fields[index] = { ...fields[index], ...data };
 };
 
